@@ -4,6 +4,16 @@ A **console-based Smart Room Manager** built with **C++** using **Object-Oriente
 
 ---
 
+## ✨ Technologies
+
+- **C++ 17**
+- **OOP (Classes, Encapsulation, Composition)**
+- **File Handling** (`<fstream>`)
+- **Standard Library** (`<iostream>`, `<string>`)
+- **Arrays** (Device collection)
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
@@ -17,19 +27,23 @@ A **console-based Smart Room Manager** built with **C++** using **Object-Oriente
 
 ---
 
-## 🏗️ Class Structure
-Device (Blueprints for individual devices)<br>
-├── name (string)<br>
-├── isOn (bool)<br>
-├── brightness (int)<br>
-└── Methods: turnOn(), turnOff(), setBrightness(), showInfo()<br><br>
+## 📍 The Process
 
-Room (Manages a collection of devices)<br>
-├── roomName (string)<br>
-├── devices[5] (array of Device objects) ← Composition<br>
-├── count (int)<br>
-└── Methods: addDevice(), findDevice(), toggleDevice(), saveToFile(), loadFromFile()<br>
+I wanted to build something that feels like controlling a smart home — simple but satisfying. Started with basic device attributes (name, status, brightness), but realized a room needs to manage multiple devices together. That's where composition came in — the Room class contains an array of Device objects. The toggle feature gives that satisfying flip feeling, while brightness control adds precision. File handling ensures your room setup isn't lost after closing the program. Built the whole thing with clean OOP so each device manages its own state, and the room just coordinates them.
 
+---
+
+## 🎯 Component Architecture
+
+- **Device Class** - Manages name, status, brightness with encapsulation
+- **Room Class** - Contains array of devices (composition)
+- **addDevice()** - Adds device with duplicate name check
+- **findDevice()** - Linear search returns index or -1
+- **toggleDevice()** - Flips status between ON/OFF
+- **setDeviceBrightness()** - Validates and updates brightness
+- **showAllDevices()** - Displays all devices with formatting
+- **saveToFile() / loadFromFile()** - Persistent storage using fstream
+- **Destructors** - Clean up memory when objects are destroyed
 
 ---
 
@@ -47,9 +61,3 @@ Room (Manages a collection of devices)<br>
 | **File Handling** | Save/load devices using `<fstream>` |
 
 ---
-
-## 🚀 How to Run
-
-### 1. Compile the code
-```bash
-g++ smart_room.cpp -o smart_room
